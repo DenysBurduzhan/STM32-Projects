@@ -1,0 +1,4 @@
+*.xmi
+.metadata/.log
+.metadata/.ide.log
+/.metadata
