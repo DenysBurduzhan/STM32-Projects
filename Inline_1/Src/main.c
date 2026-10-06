@@ -31,6 +31,9 @@ int main(void)
 //    __asm volatile("ADD R0,R0,R1");
 //    __asm volatile("STR R0,[R2]");
 //	for(;;);
-	int val = 50;
-	__asm volatile("MOV R0, %0": :"r" (val));
+//	int val = 50;
+//	__asm volatile("MOV R0, %0": :"r" (val));
+	uint32_t control_reg;
+	__asm volatile("MRS %0, CONTROL" : "=r"(control_reg): :);
+
 }
