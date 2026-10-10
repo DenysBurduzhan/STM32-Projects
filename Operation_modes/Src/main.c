@@ -42,6 +42,7 @@ void generate_interrupt()
 /* This function executes in THREAD MODE of the processor */
 int main(void)
 {
+	printf("Hello World!\n");
 	printf("In thread mode : before interrupt\n");
 
 	generate_interrupt();
