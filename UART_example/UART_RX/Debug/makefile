@@ -61,7 +61,7 @@ main-build: UART_RX.elf secondary-outputs
 
 # Tool invocations
 UART_RX.elf UART_RX.map: $(OBJS) $(USER_OBJS) D:\Embedded-C\My_workspace\target\UART_RX\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "UART_RX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Embedded-C\My_workspace\target\UART_RX\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_RX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "UART_RX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Embedded-C\My_workspace\target\UART_RX\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_RX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

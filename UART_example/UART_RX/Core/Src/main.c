@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -57,7 +58,7 @@ static void MX_UART4_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint8_t data[1];
+
 
 /* USER CODE END 0 */
 
@@ -102,15 +103,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(HAL_UART_Receive(&huart4, data, 1, 1000)==HAL_OK)
-	  	    {
-	  		  if(*data == 1){
-	  	      HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, 1);
-	  	    } else {
-	  	    	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, 0);
-	  	    }
-	  		  HAL_Delay(100);
-  }
+	uint8_t data[2];
+
+	if (HAL_UART_Receive(&huart4, data, 2, HAL_MAX_DELAY) == HAL_OK)
+	{
+	uint16_t value = ((data[0] & 0x0F) << 8) | data[1];
+	float voltage = value * 3.3f / 4096.0f;
+	printf("ADC = %u | voltage = %.2f\r\n", (unsigned)value, voltage);
+    }
   }
   /* USER CODE END 3 */
 }
@@ -133,7 +133,7 @@ void SystemClock_Config(void)
   * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_OFF;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 8;
@@ -206,8 +206,8 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
