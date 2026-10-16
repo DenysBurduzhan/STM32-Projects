@@ -96,12 +96,19 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+  HAL_StatusTypeDef result;
   char buf[65];
   uint8_t PWMValue = 0;
   HAL_TIM_Base_Start_IT(&htim4);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
   MPU6050_Data_t mpu6050;
   MPU6050_Init(&hi2c1);
+
+  void I2C_Scanner(){
+	  for(int i = 0; i < 128; i++){
+	  	  result = HAL_I2C_IsDeviceReady(&hi2c1, (i << 1), 1, 10);
+	  }
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -111,6 +118,27 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  I2C_Scanner();
+	  if(result == HAL_OK){
+	  MPU6050_Read_All(&hi2c1, &mpu6050);
+	  snprintf(buf, sizeof(buf),
+	                  "Ax: %d Ay: %d Az: %d | Gx: %d Gy: %d Gz: %d\\\\r\\\\n",
+	                  mpu6050.Accel_X,
+	                  mpu6050.Accel_Y,
+	                  mpu6050.Accel_Z,
+	                  mpu6050.Gyro_X,
+	                  mpu6050.Gyro_Y,
+	                  mpu6050.Gyro_Z);
+	  printf("Ax: %d Ay: %d Az: %d | Gx: %d Gy: %d Gz: %d\\\\r\\\\n", mpu6050.Accel_X,
+              mpu6050.Accel_Y,
+              mpu6050.Accel_Z,
+              mpu6050.Gyro_X,
+              mpu6050.Gyro_Y,
+              mpu6050.Gyro_Z);
+	  HAL_Delay(1000);
+
+	  }
+
 
 
   }
