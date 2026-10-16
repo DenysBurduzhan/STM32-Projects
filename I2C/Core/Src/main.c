@@ -18,8 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stdio.h"
-#include "MPU6050.h"
+#include <stdio.h>
+#include "mpu6050.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -96,7 +96,7 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-  HAL_StatusTypeDef result;
+  uint8_t res;
   char buf[65];
   uint8_t PWMValue = 0;
   HAL_TIM_Base_Start_IT(&htim4);
@@ -105,8 +105,12 @@ int main(void)
   MPU6050_Init(&hi2c1);
 
   void I2C_Scanner(){
-	  for(int i = 0; i < 128; i++){
-	  	  result = HAL_I2C_IsDeviceReady(&hi2c1, (i << 1), 1, 10);
+	  for(int i = 1; i < 128; i++){
+	  	  if(HAL_I2C_IsDeviceReady(&hi2c1, (i << 1), 1, 10)){
+	  		  res = 1;
+	  	  }else{
+	  		res = 0;
+	  	  }
 	  }
   }
   /* USER CODE END 2 */
@@ -119,7 +123,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  I2C_Scanner();
-	  if(result == HAL_OK){
+	  if(res){
 	  MPU6050_Read_All(&hi2c1, &mpu6050);
 	  snprintf(buf, sizeof(buf),
 	                  "Ax: %d Ay: %d Az: %d | Gx: %d Gy: %d Gz: %d\\\\r\\\\n",
@@ -135,7 +139,9 @@ int main(void)
               mpu6050.Gyro_X,
               mpu6050.Gyro_Y,
               mpu6050.Gyro_Z);
-	  HAL_Delay(1000);
+	  uint16_t PWMValue = mpu6050.Gyro_X;
+	  __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, PWMValue);
+
 
 	  }
 
@@ -246,7 +252,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 15;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 250;
+  htim4.Init.Period = 1500;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
@@ -290,7 +296,6 @@ static void MX_TIM4_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
@@ -298,16 +303,6 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PB5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
