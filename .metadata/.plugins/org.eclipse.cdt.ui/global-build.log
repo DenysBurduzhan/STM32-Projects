@@ -1,4 +1,4 @@
-20:02:46 **** Incremental Build of configuration Debug for project ADC_Driver ****
+20:10:09 **** Incremental Build of configuration Debug for project ADC_Driver ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "ADC_Driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\38066\OneDrive\Documents\GitHub\STM32-Projects\ADC_Driver\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_Driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,7 +7,7 @@ Finished building target: ADC_Driver.elf
 arm-none-eabi-size  ADC_Driver.elf 
 arm-none-eabi-objdump -h -S ADC_Driver.elf  > "ADC_Driver.list"
    text	   data	    bss	    dec	    hex	filename
-    676	      0	   1568	   2244	    8c4	ADC_Driver.elf
+    696	      0	   1568	   2264	    8d8	ADC_Driver.elf
 Finished building: default.size.stdout
  
 Finished building: ADC_Driver.list

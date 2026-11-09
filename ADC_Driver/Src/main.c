@@ -23,13 +23,14 @@
 #endif
 
 
-#define RCC_APB2_REG 0x40023864
-
+#define RCC_APB2_REG 0x40023864UL
+#define ADC_CR1_REG 0x40012004UL
 int main(void)
 {
     volatile uint32_t* peripheral_cloc_for_adc = (uint32_t*) RCC_APB2_REG;
     *peripheral_cloc_for_adc |= (1 << 8);
 
-
+    volatile uint32_t* adc_cr1_scan = (uint32_t*) ADC_CR1_REG;
+    *adc_cr1_scan |= (1 << 8);
 	for(;;);
 }
