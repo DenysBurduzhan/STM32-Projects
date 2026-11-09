@@ -22,8 +22,14 @@
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+
+#define RCC_APB2_REG 0x40023864
+
 int main(void)
 {
-    /* Loop forever */
+    volatile uint32_t* peripheral_cloc_for_adc = (uint32_t*) RCC_APB2_REG;
+    *peripheral_cloc_for_adc |= (1 << 8);
+
+
 	for(;;);
 }
