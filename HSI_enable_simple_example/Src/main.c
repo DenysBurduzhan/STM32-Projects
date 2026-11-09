@@ -21,9 +21,11 @@
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
+#define RCC_CFGR_REG 0x40023808UL
 
 int main(void)
 {
-    /* Loop forever */
+    volatile uint32_t* HSI_MCO1_select_reg = (uint32_t*)RCC_CFGR_REG;
+    *HSI_MCO1_select_reg &=~ (0x3 << 21);
 	for(;;);
 }
