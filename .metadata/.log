@@ -11117,3 +11117,32 @@ org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; Premature end of 
 	at com.st.stm32cube.ide.mpu.remote.serial.internal.SerialPortProviderWindows.run(SerialPortProviderWindows.java:127)
 	at java.base/java.util.TimerThread.mainLoop(Timer.java:566)
 	at java.base/java.util.TimerThread.run(Timer.java:516)
+!SESSION 2026-11-09 19:46:01.037 -----------------------------------------------
+eclipse.buildId=Version 2.2.0
+java.version=21.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ru_RU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-11-09 19:46:23.336
+!MESSAGE Log4j2 initialized with config file C:\Users\38066\OneDrive\Documents\GitHub\STM32-Projects\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2026-11-09 19:46:29.698
+!MESSAGE Removing PartDescriptorImpl with the "com.st.stm32cube.common.mx.views.OutputsView" id and the "Outputs" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-11-09 19:46:31.343
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-11-09 19:46:32.026
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM1
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-11-09 19:46:32.026
+!MESSAGE port: COM1
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-11-09 19:49:29.918
+!MESSAGE Indexed 'ADC_Driver' (2 sources, 53 headers) in 0,492 sec: 1 952 declarations; 2 865 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-11-09 19:50:03.808
+!MESSAGE Indexed 'ADC_Driver' (3 sources, 53 headers) in 0,288 sec: 1 954 declarations; 2 866 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0 %)
