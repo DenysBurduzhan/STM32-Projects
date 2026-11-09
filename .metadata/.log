@@ -11146,3 +11146,9 @@ COM1
 
 !ENTRY org.eclipse.cdt.core 1 0 2026-11-09 19:50:03.808
 !MESSAGE Indexed 'ADC_Driver' (3 sources, 53 headers) in 0,288 sec: 1 954 declarations; 2 866 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-11-09 20:30:51.695
+!MESSAGE Indexed 'HSI_enable_simple_example' (3 sources, 53 headers) in 0,259 sec: 1 954 declarations; 2 867 references; 0 unresolved inclusions; 2 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-11-09 20:31:08.884
+!MESSAGE Indexed 'HSI_enable_simple_example' (3 sources, 53 headers) in 0,203 sec: 1 954 declarations; 2 866 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0 %)
