@@ -1,14 +1,14 @@
-20:18:59 **** Incremental Build of configuration Debug for project HSI_enable_simple_example ****
+20:29:41 **** Incremental Build of configuration Debug for project HSE_enable_simple_example ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "HSI_enable_simple_example.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\38066\OneDrive\Documents\GitHub\STM32-Projects\HSI_enable_simple_example\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HSI_enable_simple_example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: HSI_enable_simple_example.elf
+arm-none-eabi-gcc -o "HSE_enable_simple_example.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\38066\OneDrive\Documents\GitHub\STM32-Projects\HSE_enable_simple_example\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HSE_enable_simple_example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HSE_enable_simple_example.elf
  
-arm-none-eabi-size  HSI_enable_simple_example.elf 
-arm-none-eabi-objdump -h -S HSI_enable_simple_example.elf  > "HSI_enable_simple_example.list"
+arm-none-eabi-size  HSE_enable_simple_example.elf 
+arm-none-eabi-objdump -h -S HSE_enable_simple_example.elf  > "HSE_enable_simple_example.list"
    text	   data	    bss	    dec	    hex	filename
-    772	      0	   1568	   2340	    924	HSI_enable_simple_example.elf
+    700	      0	   1568	   2268	    8dc	HSE_enable_simple_example.elf
 Finished building: default.size.stdout
  
-Finished building: HSI_enable_simple_example.list
+Finished building: HSE_enable_simple_example.list
  
