@@ -23,17 +23,25 @@
 #endif
 
 #define RCC_CFGR_REG 0x40023808UL
+#define RCC_RCC_CR_REG 0x40023800UL
 #define RCC_AHB1_REG 0x40023830UL
 #define GPIOA_BASE_ADDR 0x40020000UL
 
 int main(void)
 {
-	volatile uint32_t* HSE_MCO1_conf = (uint32_t*)RCC_CFGR_REG;
-	*HSE_MCO1_conf |= (0x2 << 21);
-
-	*HSE_MCO1_conf &=~ (0x7 << 24);
-	*HSE_MCO1_conf |= (0x5 << 24);
+	volatile uint32_t* HSE_cfgr = (uint32_t*)RCC_CFGR_REG;
 
 
+	volatile uint32_t* hse_rcc_cr_regptr = (uint32_t*)RCC_RCC_CR_REG;
+	*hse_rcc_cr_regptr |= (1 << 16);
+
+	while(!(*hse_rcc_cr_regptr & (1 << 17)));
+
+	*HSE_cfgr |= (1 << 0);
+
+	*HSE_cfgr |= ( 1 << 22);
+
+	*HSE_cfgr |= ( 1 << 25);
+	*HSE_cfgr |= ( 1 << 26);
 	for(;;);
 }
