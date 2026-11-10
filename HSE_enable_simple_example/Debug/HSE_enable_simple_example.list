@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  00000f9a  00000000  00000000  000014ec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000491  00000000  00000000  00002486  2**0
+ 18 .debug_line   00000494  00000000  00000000  00002486  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00003ce2  00000000  00000000  00002917  2**0
+ 19 .debug_str    00003ce2  00000000  00000000  0000291a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  000065f9  2**0
+ 20 .comment      00000043  00000000  00000000  000065fc  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00000058  00000000  00000000  0000663c  2**2
+ 21 .debug_frame  00000058  00000000  00000000  00006640  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000007b  00000000  00000000  00006694  2**0
+ 22 .debug_line_str 0000007b  00000000  00000000  00006698  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -90,28 +90,30 @@ int main(void)
  80001c8:	b480      	push	{r7}
  80001ca:	b083      	sub	sp, #12
  80001cc:	af00      	add	r7, sp, #0
-	volatile uint32_t* HSE_MCO2_conf = (uint32_t*)RCC_CFGR_REG;
+	volatile uint32_t* HSE_MCO1_conf = (uint32_t*)RCC_CFGR_REG;
  80001ce:	4b0b      	ldr	r3, [pc, #44]	@ (80001fc <main+0x34>)
  80001d0:	607b      	str	r3, [r7, #4]
-	*HSE_MCO2_conf &=~ (0x3 << 30);
+	*HSE_MCO1_conf |= (0x2 << 21);
  80001d2:	687b      	ldr	r3, [r7, #4]
  80001d4:	681b      	ldr	r3, [r3, #0]
- 80001d6:	f023 4240 	bic.w	r2, r3, #3221225472	@ 0xc0000000
+ 80001d6:	f443 0280 	orr.w	r2, r3, #4194304	@ 0x400000
  80001da:	687b      	ldr	r3, [r7, #4]
  80001dc:	601a      	str	r2, [r3, #0]
 
-	*HSE_MCO2_conf &=~ (0x7 << 24);
+	*HSE_MCO1_conf &=~ (0x7 << 24);
  80001de:	687b      	ldr	r3, [r7, #4]
  80001e0:	681b      	ldr	r3, [r3, #0]
  80001e2:	f023 62e0 	bic.w	r2, r3, #117440512	@ 0x7000000
  80001e6:	687b      	ldr	r3, [r7, #4]
  80001e8:	601a      	str	r2, [r3, #0]
-	*HSE_MCO2_conf |= (0x5 << 27);
+	*HSE_MCO1_conf |= (0x5 << 24);
  80001ea:	687b      	ldr	r3, [r7, #4]
  80001ec:	681b      	ldr	r3, [r3, #0]
- 80001ee:	f043 5220 	orr.w	r2, r3, #671088640	@ 0x28000000
+ 80001ee:	f043 62a0 	orr.w	r2, r3, #83886080	@ 0x5000000
  80001f2:	687b      	ldr	r3, [r7, #4]
  80001f4:	601a      	str	r2, [r3, #0]
+
+
 	for(;;);
  80001f6:	bf00      	nop
  80001f8:	e7fd      	b.n	80001f6 <main+0x2e>

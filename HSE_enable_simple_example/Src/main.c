@@ -28,10 +28,12 @@
 
 int main(void)
 {
-	volatile uint32_t* HSE_MCO2_conf = (uint32_t*)RCC_CFGR_REG;
-	*HSE_MCO2_conf &=~ (0x3 << 30);
+	volatile uint32_t* HSE_MCO1_conf = (uint32_t*)RCC_CFGR_REG;
+	*HSE_MCO1_conf |= (0x2 << 21);
 
-	*HSE_MCO2_conf &=~ (0x7 << 24);
-	*HSE_MCO2_conf |= (0x5 << 27);
+	*HSE_MCO1_conf &=~ (0x7 << 24);
+	*HSE_MCO1_conf |= (0x5 << 24);
+
+
 	for(;;);
 }
