@@ -22,6 +22,7 @@
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 #define RCC_CFGR_REG 0x40023808UL
+#define RCC_AHB1_REG 0x40023830UL
 #define GPIOA_BASE_ADDR 0x40020000UL
 
 int main(void)
@@ -31,5 +32,8 @@ int main(void)
 
     *HSI_MCO1_conf &=~ (0x7 << 24);
     *HSI_MCO1_conf |= (0x4 << 24);
+
+    volatile uint32_t* rccAHB1enable = (uint32_t*)RCC_AHB1_REG;
+    *rccAHB1enable |= (1 << 0);
 	for(;;);
 }
