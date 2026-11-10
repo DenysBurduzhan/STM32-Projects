@@ -11172,3 +11172,9 @@ COM1
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-11-10 19:59:46.240
 !MESSAGE port: COM1
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-11-10 20:22:15.022
+!MESSAGE Indexed 'HSE_enable_simple_example' (3 sources, 53 headers) in 0,482 sec: 1 954 declarations; 2 867 references; 0 unresolved inclusions; 2 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-11-10 20:22:34.777
+!MESSAGE Indexed 'HSE_enable_simple_example' (3 sources, 53 headers) in 0,259 sec: 1 954 declarations; 2 866 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0 %)
