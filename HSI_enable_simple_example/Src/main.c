@@ -36,12 +36,12 @@ int main(void)
     volatile uint32_t* rccAHB1enable = (uint32_t*)RCC_AHB1_REG;
     *rccAHB1enable |= (1 << 0);
 
-    uint32_t *pGPIOAModeReg = (uint32_t*)(GPIOA_BASE_ADDR + 00);
+    volatile uint32_t *pGPIOAModeReg = (uint32_t*)(GPIOA_BASE_ADDR + 00);
     *pGPIOAModeReg &= ~( 0x3 << 16);
     *pGPIOAModeReg |= ( 0x2 << 16);
 
 
-    uint32_t *pGPIOAAltFunHighReg = (uint32_t*)(GPIOA_BASE_ADDR + 0x24);
+    volatile uint32_t *pGPIOAAltFunHighReg = (uint32_t*)(GPIOA_BASE_ADDR + 0x24);
     *pGPIOAAltFunHighReg &= ~( 0xf << 0);
 
 	for(;;);
