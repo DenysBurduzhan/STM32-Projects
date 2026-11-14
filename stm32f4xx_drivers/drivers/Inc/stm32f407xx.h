@@ -1,13 +1,20 @@
-/*
- * stm32f407xx.h
- *
- *  Created on: 13 нояб. 2026 г.
- *      Author: 38066
- */
+
 
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 
+#define FLASH_BASE_ADDR 0x08000000U
+#define SRAM1_BASE_ADDR 0x20000000U
+#define SRAM SRAM1_BASE_ADDR
+#define SRAM2_BASE_ADDR 0x20001c00U
+#define ROM  0x1FFF0000U
 
 
+#define BASE_BUS_ADDR 0x40000000U
+#define APB1_BUS_ADDR BASE_BUS_ADDR
+#define APB2_BUS_ADDR 0x40010000U
+#define AHB1_BUS_ADDR 0x40020000U
+#define AHB2_BUS_ADDR 0x50000000U
 #endif /* INC_STM32F407XX_H_ */
+
+
