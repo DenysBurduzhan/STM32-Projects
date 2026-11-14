@@ -3,6 +3,11 @@
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 
+#include <stdint.h>
+
+#define __vol volatile
+
+
 #define FLASH_BASE_ADDR 0x08000000U
 #define SRAM1_BASE_ADDR 0x20000000U
 #define SRAM SRAM1_BASE_ADDR
@@ -49,7 +54,31 @@
 #define SYSCFG_ADDR 0x40013800U
 #define EXTI_ADDR 0x40013C00U
 
+//Peripheral structures
 
+typedef struct{
+	__vol uint32_t MODER;
+	__vol uint32_t OTYPER;
+	__vol uint32_t OSPEEDR;
+	__vol uint32_t PUPDR;
+	__vol uint32_t IDR;
+	__vol uint32_t ODR;
+	__vol uint32_t BSRR;
+	__vol uint32_t LCKR;
+	__vol uint32_t AFRL;
+	__vol uint32_t AFRH;
+}GPIO_RegDef_t;
+
+//SPI1 peripheral regs
+//#define SPI_CR1 (SPI1_ADDR + 0x00)
+//#define SPI_CR2 (SPI1_ADDR + 0x04)
+//#define SPI_SR (SPI1_ADDR + 0x08)
+//#define SPI_DR (SPI1_ADDR + 0x0C)
+//#define SPI_CRCPR (SPI1_ADDR + 0x10)
+//#define SPI_RXCRCR (SPI1_ADDR + 0x14)
+//#define SPI_TXCRCR (SPI1_ADDR + 0x18)
+//#define SPI_I2SCFGR (SPI1_ADDR + 0x1C)
+//#define SPI_I2SPR (SPI1_ADDR + 0x20)
 #endif /* INC_STM32F407XX_H_ */
 
 
