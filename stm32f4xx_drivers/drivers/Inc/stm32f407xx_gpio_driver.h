@@ -20,5 +20,22 @@ typedef struct{
 	GPIO_PinCnfg_t GPIO_cnfg;
 }GPIO_handle_t;
 
+//Clock setup
+void GPIO_PeriClockControl(void);
+
+//Init and De-Init
+void GPIO_Init(void);
+void GPIO_DeInit(void);
+
+//data read/write
+void GPIO_ReadFronInputPin(void);
+void GPIO_ReadFronInputPort(void);
+void GPIO_ReadFronOutputPin(void);
+void GPIO_ReadFronOutputPort(void);
+void GPIO_TogglePin(void);
+
+//ISR cnfg and handling
+void GPIO_IRQConfig(void);
+void GPIO_IRQHandler(void);
 
 #endif /* INC_STM32F407XX_GPIO_DRIVER_H_ */
