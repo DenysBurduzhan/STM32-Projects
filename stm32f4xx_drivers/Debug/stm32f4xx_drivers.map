@@ -831,10 +831,10 @@ LOAD C:/ST/STM32CubeIDE_2.2.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_line    0x00000000      0x475 ./Src/main.o
  .debug_line    0x00000475       0x7b ./Startup/startup_stm32f407vgtx.o
 
-.debug_str      0x00000000     0x49d1
- .debug_str     0x00000000     0x49d1 ./Src/main.o
-                               0x4aed (size before relaxing)
- .debug_str     0x000049d1       0x98 ./Startup/startup_stm32f407vgtx.o
+.debug_str      0x00000000     0x49e9
+ .debug_str     0x00000000     0x49e9 ./Src/main.o
+                               0x4b05 (size before relaxing)
+ .debug_str     0x000049e9       0x98 ./Startup/startup_stm32f407vgtx.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/main.o

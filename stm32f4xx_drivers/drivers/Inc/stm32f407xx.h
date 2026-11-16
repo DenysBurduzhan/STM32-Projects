@@ -120,19 +120,19 @@ typedef struct{
 }RCC_RegDef_t;
 
 //defines peripheral regs for structures
-#define GPIOA (GPIO_RegDef_t*)GPIOA_ADDR
-#define GPIOB (GPIO_RegDef_t*)GPIOB_ADDR
-#define GPIOС (GPIO_RegDef_t*)GPIOC_ADDR
-#define GPIOD (GPIO_RegDef_t*)GPIOD_ADDR
-#define GPIOE (GPIO_RegDef_t*)GPIOE_ADDR
-#define GPIOF (GPIO_RegDef_t*)GPIOF_ADDR
-#define GPIOG (GPIO_RegDef_t*)GPIOG_ADDR
-#define GPIOH (GPIO_RegDef_t*)GPIOH_ADDR
-#define GPIOI (GPIO_RegDef_t*)GPIOI_ADDR
-#define GPIOJ (GPIO_RegDef_t*)GPIOJ_ADDR
-#define GPIOK (GPIO_RegDef_t*)GPIOK_ADDR
+#define GPIOA ((GPIO_RegDef_t*)GPIOA_ADDR)
+#define GPIOB ((GPIO_RegDef_t*)GPIOB_ADDR)
+#define GPIOС ((GPIO_RegDef_t*)GPIOC_ADDR)
+#define GPIOD ((GPIO_RegDef_t*)GPIOD_ADDR)
+#define GPIOE ((GPIO_RegDef_t*)GPIOE_ADDR)
+#define GPIOF ((GPIO_RegDef_t*)GPIOF_ADDR)
+#define GPIOG ((GPIO_RegDef_t*)GPIOG_ADDR)
+#define GPIOH ((GPIO_RegDef_t*)GPIOH_ADDR)
+#define GPIOI ((GPIO_RegDef_t*)GPIOI_ADDR)
+#define GPIOJ ((GPIO_RegDef_t*)GPIOJ_ADDR)
+#define GPIOK ((GPIO_RegDef_t*)GPIOK_ADDR)
 
-#define RCC (RCC_RegDef_t*)RCC_BASEADDR
+#define RCC ((RCC_RegDef_t*)RCC_BASEADDR)
 
 //GPIO_RegDef_t *gpio_a_cnfg = GPIOA;//example
 //RCC_RegDef_t *rcc_cnfg = RCC;//example
