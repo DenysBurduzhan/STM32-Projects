@@ -21,7 +21,7 @@ typedef struct{
 }GPIO_handle_t;
 
 //Clock setup
-void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t states);
+void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t ENorDI);
 
 //Init and De-Init
 void GPIO_Init(GPIO_handle_t *pGPIOHandle);
@@ -35,7 +35,7 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);
 void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 
 //ISR cnfg and handling
-void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t state);
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t ENorDI);
 void GPIO_IRQHandler(uint8_t PinNumber);
 
 #endif /* INC_STM32F407XX_GPIO_DRIVER_H_ */

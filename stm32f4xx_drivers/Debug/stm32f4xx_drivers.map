@@ -270,13 +270,36 @@ Discarded input sections
  .text          0x00000000        0x0 ./drivers/src/stm32f407xx_gpio_driver.o
  .data          0x00000000        0x0 ./drivers/src/stm32f407xx_gpio_driver.o
  .bss           0x00000000        0x0 ./drivers/src/stm32f407xx_gpio_driver.o
- .debug_info    0x00000000       0x65 ./drivers/src/stm32f407xx_gpio_driver.o
- .debug_abbrev  0x00000000       0x26 ./drivers/src/stm32f407xx_gpio_driver.o
- .debug_aranges
+ .text.GPIO_PeriClockControl
+                0x00000000      0x1d0 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_Init
+                0x00000000       0x12 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_DeInit
+                0x00000000       0x12 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_ReadFromInputPin
                 0x00000000       0x18 ./drivers/src/stm32f407xx_gpio_driver.o
- .debug_line    0x00000000       0x49 ./drivers/src/stm32f407xx_gpio_driver.o
- .debug_str     0x00000000      0x1c5 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_ReadFromInputPort
+                0x00000000       0x14 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_WriteToOutputPin
+                0x00000000       0x1a ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_WriteToOutputPort
+                0x00000000       0x16 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_TogglePin
+                0x00000000       0x16 ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_IRQConfig
+                0x00000000       0x1c ./drivers/src/stm32f407xx_gpio_driver.o
+ .text.GPIO_IRQHandler
+                0x00000000       0x14 ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_info    0x00000000      0x58e ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_abbrev  0x00000000       0xe4 ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_aranges
+                0x00000000       0x68 ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_rnglists
+                0x00000000       0x4a ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_line    0x00000000      0x468 ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_str     0x00000000      0x53d ./drivers/src/stm32f407xx_gpio_driver.o
  .comment       0x00000000       0x44 ./drivers/src/stm32f407xx_gpio_driver.o
+ .debug_frame   0x00000000      0x178 ./drivers/src/stm32f407xx_gpio_driver.o
  .ARM.attributes
                 0x00000000       0x2e ./drivers/src/stm32f407xx_gpio_driver.o
  .text          0x00000000        0x0 C:/ST/STM32CubeIDE_2.2.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libc_nano.a(libc_a-exit.o)
@@ -829,7 +852,7 @@ LOAD C:/ST/STM32CubeIDE_2.2.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_rnglists
                 0x00000013       0x19 ./Startup/startup_stm32f407vgtx.o
 
-.debug_macro    0x00000000     0x120a
+.debug_macro    0x00000000     0x1218
  .debug_macro   0x00000000       0x6c ./Src/main.o
  .debug_macro   0x0000006c      0xad8 ./Src/main.o
  .debug_macro   0x00000b44       0x22 ./Src/main.o
@@ -838,16 +861,16 @@ LOAD C:/ST/STM32CubeIDE_2.2.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x00000c45      0x103 ./Src/main.o
  .debug_macro   0x00000d48       0x6a ./Src/main.o
  .debug_macro   0x00000db2      0x1df ./Src/main.o
- .debug_macro   0x00000f91      0x279 ./Src/main.o
+ .debug_macro   0x00000f91      0x287 ./Src/main.o
 
 .debug_line     0x00000000      0x4f0
  .debug_line    0x00000000      0x475 ./Src/main.o
  .debug_line    0x00000475       0x7b ./Startup/startup_stm32f407vgtx.o
 
-.debug_str      0x00000000     0x49f7
- .debug_str     0x00000000     0x49f7 ./Src/main.o
-                               0x4b13 (size before relaxing)
- .debug_str     0x000049f7       0x98 ./Startup/startup_stm32f407vgtx.o
+.debug_str      0x00000000     0x4a07
+ .debug_str     0x00000000     0x4a07 ./Src/main.o
+                               0x4b23 (size before relaxing)
+ .debug_str     0x00004a07       0x98 ./Startup/startup_stm32f407vgtx.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Src/main.o

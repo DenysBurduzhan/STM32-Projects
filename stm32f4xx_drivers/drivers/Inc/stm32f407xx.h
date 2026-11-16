@@ -122,7 +122,7 @@ typedef struct{
 //defines peripheral regs for structures
 #define GPIOA ((GPIO_RegDef_t*)GPIOA_ADDR)
 #define GPIOB ((GPIO_RegDef_t*)GPIOB_ADDR)
-#define GPIOС ((GPIO_RegDef_t*)GPIOC_ADDR)
+#define GPIOC ((GPIO_RegDef_t*)GPIOC_ADDR)
 #define GPIOD ((GPIO_RegDef_t*)GPIOD_ADDR)
 #define GPIOE ((GPIO_RegDef_t*)GPIOE_ADDR)
 #define GPIOF ((GPIO_RegDef_t*)GPIOF_ADDR)
@@ -208,6 +208,8 @@ typedef struct{
 //DI or EN pin's states
 #define SET 1
 #define RESET 0
+#define ENABLE SET
+#define DISABLE RESET
 
 #endif /* INC_STM32F407XX_H_ */
 
