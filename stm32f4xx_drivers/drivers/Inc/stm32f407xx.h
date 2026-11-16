@@ -54,7 +54,18 @@
 #define SYSCFG_ADDR 0x40013800U
 #define EXTI_ADDR 0x40013C00U
 
+
 //Peripheral structures
+//SPI1 peripheral regs
+//#define SPI_CR1 (SPI1_ADDR + 0x00)
+//#define SPI_CR2 (SPI1_ADDR + 0x04)
+//#define SPI_SR (SPI1_ADDR + 0x08)
+//#define SPI_DR (SPI1_ADDR + 0x0C)
+//#define SPI_CRCPR (SPI1_ADDR + 0x10)
+//#define SPI_RXCRCR (SPI1_ADDR + 0x14)
+//#define SPI_TXCRCR (SPI1_ADDR + 0x18)
+//#define SPI_I2SCFGR (SPI1_ADDR + 0x1C)
+//#define SPI_I2SPR (SPI1_ADDR + 0x20)
 
 typedef struct{
 	__vol uint32_t MODER;
@@ -69,16 +80,22 @@ typedef struct{
 	__vol uint32_t AFRH;
 }GPIO_RegDef_t;
 
-//SPI1 peripheral regs
-//#define SPI_CR1 (SPI1_ADDR + 0x00)
-//#define SPI_CR2 (SPI1_ADDR + 0x04)
-//#define SPI_SR (SPI1_ADDR + 0x08)
-//#define SPI_DR (SPI1_ADDR + 0x0C)
-//#define SPI_CRCPR (SPI1_ADDR + 0x10)
-//#define SPI_RXCRCR (SPI1_ADDR + 0x14)
-//#define SPI_TXCRCR (SPI1_ADDR + 0x18)
-//#define SPI_I2SCFGR (SPI1_ADDR + 0x1C)
-//#define SPI_I2SPR (SPI1_ADDR + 0x20)
+//defines peripheral regs for structures
+#define GPIOA (GPIO_RegDef_t*)GPIOA_ADDR
+#define GPIOB (GPIO_RegDef_t*)GPIOB_ADDR
+#define GPIOC (GPIO_RegDef_t*)GPIOC_ADDR
+#define GPIOD (GPIO_RegDef_t*)GPIOD_ADDR
+#define GPIOE (GPIO_RegDef_t*)GPIOE_ADDR
+#define GPIOF (GPIO_RegDef_t*)GPIOF_ADDR
+#define GPIOG (GPIO_RegDef_t*)GPIOG_ADDR
+#define GPIOH (GPIO_RegDef_t*)GPIOH_ADDR
+#define GPIOI (GPIO_RegDef_t*)GPIOI_ADDR
+#define GPIOJ (GPIO_RegDef_t*)GPIOJ_ADDR
+#define GPIOK (GPIO_RegDef_t*)GPIOK_ADDR
+
+GPIO_RegDef_t *gpio_a_cnfg = GPIOA;//example
+
+
 #endif /* INC_STM32F407XX_H_ */
 
 
