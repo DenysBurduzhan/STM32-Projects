@@ -153,12 +153,15 @@ typedef struct{
 #define I2C3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 23))
 
 //Clock enable macros for SPI
+#define SPI1_PCLK_EN() (RCC->RCC_APB2ENR |= (1 << 12))
 #define SPI2_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 14))
 #define SPI3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 15))
 
 //Clock enable macros for USART
+#define USART1_PCLK_EN() (RCC->RCC_APB2ENR |= (1 << 4))
 #define USART2_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 17))
 #define USART3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 18))
+#define USART6_PCLK_EN() (RCC->RCC_APB2ENR |= (1 << 5))
 
 //Clock enable macros for UART
 #define UART4_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 19))
@@ -181,12 +184,15 @@ typedef struct{
 #define I2C3_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 23))
 
 //Clock disable macros for SPI
+#define SPI1_PCLK_DI() (RCC->RCC_APB2ENR &=~ (1 << 12))
 #define SPI2_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 14))
 #define SPI3_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 15))
 
 //Clock disable macros for USART
+#define USART1_PCLK_DI() (RCC->RCC_APB2ENR &=~ (1 << 4))
 #define USART2_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 17))
 #define USART3_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 18))
+#define USART6_PCLK_DI() (RCC->RCC_APB2ENR &=~ (1 << 5))
 
 //Clock disable macros for UART
 #define UART4_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 19))
