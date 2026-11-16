@@ -160,6 +160,10 @@ typedef struct{
 #define USART2_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 17))
 #define USART3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 18))
 
+//Clock enable macros for UART
+#define UART4_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 19))
+#define UART5_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 20))
+
 #endif /* INC_STM32F407XX_H_ */
 
 
