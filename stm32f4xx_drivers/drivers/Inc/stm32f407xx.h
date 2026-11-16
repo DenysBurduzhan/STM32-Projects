@@ -205,6 +205,10 @@ typedef struct{
 //Clock disable macros for SYSCFG
 #define SYSCFG_PCLK_DI() (RCC->RCC_APB2ENR &=~ (1 << 14))
 
+//DI or EN pin's states
+#define SET 1
+#define RESET 0
+
 #endif /* INC_STM32F407XX_H_ */
 
 

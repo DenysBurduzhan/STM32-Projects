@@ -21,21 +21,21 @@ typedef struct{
 }GPIO_handle_t;
 
 //Clock setup
-void GPIO_PeriClockControl(void);
+void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t states);
 
 //Init and De-Init
-void GPIO_Init(void);
-void GPIO_DeInit(void);
+void GPIO_Init(GPIO_handle_t *pGPIOHandle);
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOHandle);
 
 //data read/write
-void GPIO_ReadFronInputPin(void);
-void GPIO_ReadFronInputPort(void);
-void GPIO_ReadFronOutputPin(void);
-void GPIO_ReadFronOutputPort(void);
-void GPIO_TogglePin(void);
+uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx);
+void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t value);
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value);
+void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 
 //ISR cnfg and handling
-void GPIO_IRQConfig(void);
-void GPIO_IRQHandler(void);
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t state);
+void GPIO_IRQHandler(uint8_t PinNumber);
 
 #endif /* INC_STM32F407XX_GPIO_DRIVER_H_ */
