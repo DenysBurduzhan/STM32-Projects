@@ -106,14 +106,15 @@ typedef struct{
 	__vol uint32_t RCC_AHB1LPENR;
 	__vol uint32_t RCC_AHB2LPENR;
 	__vol uint32_t RCC_AHB3LPENR;
+	__vol uint32_t RESERVED6;
 	__vol uint32_t RCC_APB1LPENR;
 	__vol uint32_t RCC_APB2LPENR;
-	__vol uint32_t RESERVED6;
 	__vol uint32_t RESERVED7;
+	__vol uint32_t RESERVED8;
 	__vol uint32_t RCC_BDCR;
 	__vol uint32_t RCC_CSR;
-	__vol uint32_t RESERVED8;
 	__vol uint32_t RESERVED9;
+	__vol uint32_t RESERVED10;
 	__vol uint32_t RCC_SSCGR;
 	__vol uint32_t RCC_PLLI2SCFGR;
 }RCC_RegDef_t;
@@ -121,7 +122,7 @@ typedef struct{
 //defines peripheral regs for structures
 #define GPIOA (GPIO_RegDef_t*)GPIOA_ADDR
 #define GPIOB (GPIO_RegDef_t*)GPIOB_ADDR
-#define I2C2 (GPIO_RegDef_t*)GPIOC_ADDR
+#define GPIOС (GPIO_RegDef_t*)GPIOC_ADDR
 #define GPIOD (GPIO_RegDef_t*)GPIOD_ADDR
 #define GPIOE (GPIO_RegDef_t*)GPIOE_ADDR
 #define GPIOF (GPIO_RegDef_t*)GPIOF_ADDR
