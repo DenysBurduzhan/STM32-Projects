@@ -156,6 +156,10 @@ typedef struct{
 #define SPI2_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 14))
 #define SPI3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 15))
 
+//Clock enable macros for USART
+#define USART2_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 17))
+#define USART3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 18))
+
 #endif /* INC_STM32F407XX_H_ */
 
 
