@@ -35,23 +35,23 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t state){
 		}
 	} else {
 		if (pGPIOx == GPIOA) {
-			GPIOA_PCLK_DI();
+			GPIOA_PCLK_EN();
 		} else if (pGPIOx == GPIOB) {
-			GPIOB_PCLK_DI();
+			GPIOB_PCLK_EN();
 		} else if (pGPIOx == GPIOC) {
-			GPIOC_PCLK_DI();
+			GPIOC_PCLK_EN();
 		} else if (pGPIOx == GPIOD) {
-			GPIOD_PCLK_DI();
+			GPIOD_PCLK_EN();
 		} else if (pGPIOx == GPIOE) {
-			GPIOE_PCLK_DI();
+			GPIOE_PCLK_EN();
 		} else if (pGPIOx == GPIOF) {
-			GPIOF_PCLK_DI();
+			GPIOF_PCLK_EN();
 		} else if (pGPIOx == GPIOG) {
-			GPIOG_PCLK_DI();
+			GPIOG_PCLK_EN();
 		} else if (pGPIOx == GPIOH) {
-			GPIOH_PCLK_DI();
+			GPIOH_PCLK_EN();
 		} else if (pGPIOx == GPIOI) {
-			GPIOI_PCLK_DI();
+			GPIOI_PCLK_EN();
 		}
 	}
 }
