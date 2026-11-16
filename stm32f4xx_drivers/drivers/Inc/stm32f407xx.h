@@ -137,7 +137,19 @@ typedef struct{
 //RCC_RegDef_t *rcc_cnfg = RCC;//example
 
 //Clock enable macros for GPIOx
-#define GPIOA_CLOCK_EN() (RCC->RCC_AHB1ENR |= (1 << 0))
+#define GPIOA_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 0))
+#define GPIOB_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 1))
+#define GPIOC_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 2))
+#define GPIOD_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 3))
+#define GPIOE_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 4))
+#define GPIOF_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 5))
+#define GPIOG_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 6))
+#define GPIOH_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 7))
+#define GPIOI_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 8))
+
+
+
+
 
 
 
