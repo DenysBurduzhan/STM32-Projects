@@ -175,6 +175,23 @@ typedef struct{
 #define GPIOH_PCLK_DI() (RCC->RCC_AHB1ENR &=~ (1 << 7))
 #define GPIOI_PCLK_DI() (RCC->RCC_AHB1ENR &=~ (1 << 8))
 
+//Clock disable macros for I2C
+#define I2C1_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 21))
+#define I2C2_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 22))
+#define I2C3_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 23))
+
+//Clock disable macros for SPI
+#define SPI2_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 14))
+#define SPI3_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 15))
+
+//Clock disable macros for USART
+#define USART2_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 17))
+#define USART3_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 18))
+
+//Clock disable macros for UART
+#define UART4_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 19))
+#define UART5_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 20))
+
 #endif /* INC_STM32F407XX_H_ */
 
 
