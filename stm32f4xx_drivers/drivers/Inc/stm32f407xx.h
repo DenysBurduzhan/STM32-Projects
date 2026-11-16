@@ -167,6 +167,9 @@ typedef struct{
 #define UART4_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 19))
 #define UART5_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 20))
 
+//Clock enable macros for SYSCFG
+#define SYSCFG_PCLK_EN() (RCC->RCC_APB2ENR |= (1 << 14))
+
 //Clock disable macros for GPIOx
 #define GPIOA_PCLK_DI() (RCC->RCC_AHB1ENR &=~ (1 << 0))
 #define GPIOB_PCLK_DI() (RCC->RCC_AHB1ENR &=~ (1 << 1))
@@ -197,6 +200,9 @@ typedef struct{
 //Clock disable macros for UART
 #define UART4_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 19))
 #define UART5_PCLK_DI() (RCC->RCC_APB1ENR &=~ (1 << 20))
+
+//Clock disable macros for SYSCFG
+#define SYSCFG_PCLK_DI() (RCC->RCC_APB2ENR &=~ (1 << 14))
 
 #endif /* INC_STM32F407XX_H_ */
 
