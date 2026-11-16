@@ -121,7 +121,7 @@ typedef struct{
 //defines peripheral regs for structures
 #define GPIOA (GPIO_RegDef_t*)GPIOA_ADDR
 #define GPIOB (GPIO_RegDef_t*)GPIOB_ADDR
-#define GPIOC (GPIO_RegDef_t*)GPIOC_ADDR
+#define I2C2 (GPIO_RegDef_t*)GPIOC_ADDR
 #define GPIOD (GPIO_RegDef_t*)GPIOD_ADDR
 #define GPIOE (GPIO_RegDef_t*)GPIOE_ADDR
 #define GPIOF (GPIO_RegDef_t*)GPIOF_ADDR
@@ -147,9 +147,10 @@ typedef struct{
 #define GPIOH_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 7))
 #define GPIOI_PCLK_EN() (RCC->RCC_AHB1ENR |= (1 << 8))
 
-
-
-
+//Clock enable macros for I2C
+#define I2C1_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 21))
+#define I2C2_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 22))
+#define I2C3_PCLK_EN() (RCC->RCC_APB1ENR |= (1 << 23))
 
 
 
