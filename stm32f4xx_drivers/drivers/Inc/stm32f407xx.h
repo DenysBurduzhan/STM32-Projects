@@ -133,8 +133,12 @@ typedef struct{
 
 #define RCC (RCC_RegDef_t*)RCC_BASEADDR
 
-GPIO_RegDef_t *gpio_a_cnfg = GPIOA;//example
-RCC_RegDef_t *rcc_cnfg = RCC;
+//GPIO_RegDef_t *gpio_a_cnfg = GPIOA;//example
+//RCC_RegDef_t *rcc_cnfg = RCC;//example
+
+//Clock enable macros for GPIOx
+#define GPIOA_CLOCK_EN() (RCC->RCC_AHB1ENR |= (1 << 0))
+
 
 
 #endif /* INC_STM32F407XX_H_ */
