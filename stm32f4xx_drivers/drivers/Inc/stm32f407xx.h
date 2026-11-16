@@ -35,6 +35,8 @@
 #define GPIOJ_ADDR 0x40022400U
 #define GPIOK_ADDR 0x40022800U
 
+#define RCC_BASEADDR 0x40023800U
+
 //APB1
 
 #define I2C1_ADDR 0x40005400U
@@ -80,6 +82,42 @@ typedef struct{
 	__vol uint32_t AFRH;
 }GPIO_RegDef_t;
 
+typedef struct{
+	__vol uint32_t RCC_CR;
+	__vol uint32_t RCC_PLLCFGR;
+	__vol uint32_t RCC_CFGR;
+	__vol uint32_t RCC_CIR;
+	__vol uint32_t RCC_AHB1RSTR;
+	__vol uint32_t RCC_AHB2RSTR;
+	__vol uint32_t RCC_AHB3RSTR;
+	__vol uint32_t RESERVED0;
+	__vol uint32_t RCC_APB1RSTR;
+	__vol uint32_t RCC_APB2RSTR;
+	__vol uint32_t RESERVED1;
+	__vol uint32_t RESERVED2;
+	__vol uint32_t RCC_AHB1ENR;
+	__vol uint32_t RCC_AHB2ENR;
+	__vol uint32_t RCC_AHB3ENR;
+	__vol uint32_t RESERVED3;
+	__vol uint32_t RCC_APB1ENR;
+	__vol uint32_t RCC_APB2ENR;
+	__vol uint32_t RESERVED4;
+	__vol uint32_t RESERVED5;
+	__vol uint32_t RCC_AHB1LPENR;
+	__vol uint32_t RCC_AHB2LPENR;
+	__vol uint32_t RCC_AHB3LPENR;
+	__vol uint32_t RCC_APB1LPENR;
+	__vol uint32_t RCC_APB2LPENR;
+	__vol uint32_t RESERVED6;
+	__vol uint32_t RESERVED7;
+	__vol uint32_t RCC_BDCR;
+	__vol uint32_t RCC_CSR;
+	__vol uint32_t RESERVED8;
+	__vol uint32_t RESERVED9;
+	__vol uint32_t RCC_SSCGR;
+	__vol uint32_t RCC_PLLI2SCFGR;
+}RCC_RegDef_t;
+
 //defines peripheral regs for structures
 #define GPIOA (GPIO_RegDef_t*)GPIOA_ADDR
 #define GPIOB (GPIO_RegDef_t*)GPIOB_ADDR
@@ -93,7 +131,10 @@ typedef struct{
 #define GPIOJ (GPIO_RegDef_t*)GPIOJ_ADDR
 #define GPIOK (GPIO_RegDef_t*)GPIOK_ADDR
 
+#define RCC (RCC_RegDef_t*)RCC_BASEADDR
+
 GPIO_RegDef_t *gpio_a_cnfg = GPIOA;//example
+RCC_RegDef_t *rcc_cnfg = RCC;
 
 
 #endif /* INC_STM32F407XX_H_ */
