@@ -70,7 +70,30 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t state){
  * @Note      - none
  */
 void GPIO_Init(GPIO_handle_t *pGPIOHandle){
-	;
+	uint32_t temp = 0;
+	if(pGPIOHandle->GPIO_cnfg.GPIO_PinMode <= GPIO_MODE_ANALOG){
+		temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinMode << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+		pGPIOHandle->pGPIOx->MODER |= temp;
+	}else{
+		//IT case
+	}
+
+	temp = 0;
+	temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinSpeed << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->OSPEEDR |= temp;
+
+	temp = 0;
+	temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinPuPd << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->PUPDR |= temp;
+
+	temp = 0;
+	temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinOPType << pGPIOHandle->GPIO_cnfg.GPIO_PinNumber);
+	pGPIOHandle->pGPIOx->OTYPER |= temp;
+
+	temp = 0;
+	if(pGPIOHandle->GPIO_cnfg.GPIO_PinMode == GPIO_MODE_ALTFUN){
+
+	}
 }
 
 /*
