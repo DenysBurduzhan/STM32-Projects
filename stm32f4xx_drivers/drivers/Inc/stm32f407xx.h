@@ -211,6 +211,19 @@ typedef struct{
 #define ENABLE SET
 #define DISABLE RESET
 
+//reset GPIO macros
+#define GPIOA_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 0)); (RCC->RCC_AHB1RSTR &=~ (1 < 0));} while(0)
+#define GPIOB_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 1)); (RCC->RCC_AHB1RSTR &=~ (1 < 1));} while(0)
+#define GPIOC_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 2)); (RCC->RCC_AHB1RSTR &=~ (1 < 2));} while(0)
+#define GPIOD_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 3)); (RCC->RCC_AHB1RSTR &=~ (1 < 3));} while(0)
+#define GPIOE_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 4)); (RCC->RCC_AHB1RSTR &=~ (1 < 4));} while(0)
+#define GPIOF_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 5)); (RCC->RCC_AHB1RSTR &=~ (1 < 5));} while(0)
+#define GPIOG_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 6)); (RCC->RCC_AHB1RSTR &=~ (1 < 6));} while(0)
+#define GPIOH_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 7)); (RCC->RCC_AHB1RSTR &=~ (1 < 7));} while(0)
+#define GPIOI_RESET_PORT() do{(RCC->RCC_AHB1RSTR |= (1 < 8)); (RCC->RCC_AHB1RSTR &=~ (1 < 8));} while(0)
+
+
+
 #endif /* INC_STM32F407XX_H_ */
 
 
