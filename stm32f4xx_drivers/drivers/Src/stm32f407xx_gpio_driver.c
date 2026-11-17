@@ -73,6 +73,7 @@ void GPIO_Init(GPIO_handle_t *pGPIOHandle){
 	uint32_t temp = 0;
 	if(pGPIOHandle->GPIO_cnfg.GPIO_PinMode <= GPIO_MODE_ANALOG){
 		temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinMode << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+		pGPIOHandle->pGPIOx->MODER &=~ (0x3 << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
 		pGPIOHandle->pGPIOx->MODER |= temp;
 	}else{
 		//IT case
@@ -80,23 +81,28 @@ void GPIO_Init(GPIO_handle_t *pGPIOHandle){
 
 	temp = 0;
 	temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinSpeed << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->OSPEEDR &=~ (0x3 << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->OSPEEDR |= temp;
 
 	temp = 0;
 	temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinPuPd << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->PUPDR &=~ (0x3 << (2 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->PUPDR |= temp;
 
 	temp = 0;
 	temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinOPType << pGPIOHandle->GPIO_cnfg.GPIO_PinNumber);
+	pGPIOHandle->pGPIOx->OTYPER &=~ (0x1 << pGPIOHandle->GPIO_cnfg.GPIO_PinNumber);
 	pGPIOHandle->pGPIOx->OTYPER |= temp;
 
 	temp = 0;
 	if(pGPIOHandle->GPIO_cnfg.GPIO_PinMode == GPIO_MODE_ALTFUN){
 		if(pGPIOHandle->GPIO_cnfg.GPIO_PinNumber < 8){
 			temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinALTFuncMode << (4 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+			pGPIOHandle->pGPIOx->AFRL &=~ (0xF << (4 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
 			pGPIOHandle->pGPIOx->AFRL |= temp;
 		}else{
-			temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinALTFuncMode << (4 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+			temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinALTFuncMode << (4 * (pGPIOHandle->GPIO_cnfg.GPIO_PinNumber-8)));
+			pGPIOHandle->pGPIOx->AFRH &=~ (0xF << (4 * (pGPIOHandle->GPIO_cnfg.GPIO_PinNumber-8)));
 			pGPIOHandle->pGPIOx->AFRH |= temp;
 		}
 	}
