@@ -20,6 +20,48 @@ typedef struct{
 	GPIO_PinCnfg_t GPIO_cnfg;
 }GPIO_handle_t;
 
+// GPIO possible pin macros
+#define GPIO_PIN_0 0
+#define GPIO_PIN_1 1
+#define GPIO_PIN_2 2
+#define GPIO_PIN_3 3
+#define GPIO_PIN_4 4
+#define GPIO_PIN_5 5
+#define GPIO_PIN_6 6
+#define GPIO_PIN_7 7
+#define GPIO_PIN_8 8
+#define GPIO_PIN_9 9
+#define GPIO_PIN_10 10
+#define GPIO_PIN_11 11
+#define GPIO_PIN_12 12
+#define GPIO_PIN_13 13
+#define GPIO_PIN_14 14
+#define GPIO_PIN_15 15
+
+// GPIO mode definitions
+#define GPIO_MODE_INPUT 0
+#define GPIO_MODE_OUTPUT 1
+#define GPIO_MODE_ALTFUN 2
+#define GPIO_MODE_ANALOG 3
+#define GPIO_MODE_IT_FT 4
+#define GPIO_MODE_IT_RT 5
+#define GPIO_MODE_IT_RFT 6
+
+// GPIO output type definitions
+#define GPIO_TYPE_PP 0
+#define GPIO_TYPE_OD 1
+
+// GPIO speed definitions
+#define GPIO_SPEED_LOW 0
+#define GPIO_SPEED_MEDIUM 1
+#define GPIO_SPEED_HIGH 2
+#define GPIO_SPEED_VHIGH 3
+
+// GPIO pull up, pull down definitions
+#define GPIO_PUPD_NAN 0
+#define GPIO_PU 1
+#define GPIO_PD 2
+
 //Clock setup
 void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t ENorDI);
 
