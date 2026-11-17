@@ -92,7 +92,13 @@ void GPIO_Init(GPIO_handle_t *pGPIOHandle){
 
 	temp = 0;
 	if(pGPIOHandle->GPIO_cnfg.GPIO_PinMode == GPIO_MODE_ALTFUN){
-
+		if(pGPIOHandle->GPIO_cnfg.GPIO_PinNumber < 8){
+			temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinALTFuncMode << (4 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+			pGPIOHandle->pGPIOx->AFRL |= temp;
+		}else{
+			temp = (pGPIOHandle->GPIO_cnfg.GPIO_PinALTFuncMode << (4 * pGPIOHandle->GPIO_cnfg.GPIO_PinNumber));
+			pGPIOHandle->pGPIOx->AFRH |= temp;
+		}
 	}
 }
 
