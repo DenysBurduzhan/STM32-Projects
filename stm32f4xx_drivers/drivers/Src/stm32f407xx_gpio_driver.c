@@ -158,7 +158,9 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx){
  * @Note      - none
  */
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
-	;
+	uint8_t res = 0;
+	res = (uint8_t)((pGPIOx->IDR >> PinNumber) & 0x1U);
+	return res;
 }
 
 /*
@@ -175,7 +177,9 @@ uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
  * @Note      - none
  */
 uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx){
-	;
+	uint16_t res = 0;
+	res = (uint16_t)pGPIOx->IDR;
+	return res;
 }
 
 /*
@@ -192,7 +196,13 @@ uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx){
  * @Note      - none
  */
 void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t value){
-	;
+	if(PinNumber > 15)
+		return;
+	if(value == SET){
+		pGPIOx->ODR |= (1U << PinNumber);
+	}else{
+		pGPIOx->ODR &=~ (1U << PinNumber);
+	}
 }
 
 /*
@@ -209,7 +219,7 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t val
  * @Note      - none
  */
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value){
-	;
+	pGPIOx->ODR = value;
 }
 
 /*
@@ -226,7 +236,7 @@ void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value){
  * @Note      - none
  */
 void GPIO_TogglePin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
-	;
+	pGPIOx->ODR ^= 1 << PinNumber;
 }
 
 /*
